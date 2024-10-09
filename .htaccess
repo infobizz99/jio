@@ -1,0 +1,15 @@
+RewriteEngine On
+
+# Redirect index to root
+RewriteRule ^index$ index.php [L]
+
+# Redirect recharge to recharge.php
+RewriteRule ^recharge$ recharge.php [L]
+
+# Redirect payment to payment.php
+RewriteRule ^payment$ payment.php [L]
+
+# Remove .html extension for all files
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^/]+)$ $1.php [L]
